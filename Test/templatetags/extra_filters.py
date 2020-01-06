@@ -18,3 +18,9 @@ def get_user_detail(id, num):
 
     result = user_attrs[num]
     return result
+
+
+@register.filter()
+def get_answers(question):
+    answers = PossibleAnswer.objects.filter(question_id=question.id)
+    return answers

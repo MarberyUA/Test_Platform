@@ -90,7 +90,7 @@ from secret_info import DB_USER, DB_USER_PASSWORD
 DATABASES = {
     'default': {
         # db name
-        'NAME': '',
+        'NAME': 'testload',
         'ENGINE': 'django.db.backends.mysql',
         'USER': DB_USER,
         'PASSWORD': DB_USER_PASSWORD,

@@ -15,22 +15,27 @@
             </a>
         </div>
     {% else %}
-        <form method="post" action="" xmlns="http://www.w3.org/1999/html">
-        {% csrf_token %}
+        <form method="post" action="{% url 'test_pass_url' test.id %}" xmlns="http://www.w3.org/1999/html">
+            {% csrf_token %}
             {% for question in questions %}
                 <ul class="list-group a-question" >
                     <li class="list-group-item list-group-item-light">{{ question }}</li>
-                        <div class="list-answers" id="group">
+                    <div class="list-answers group" id="group">
                             {% for answer in question|get_answers %}
-                                <div class="possible-answer">
+
                                     <input type="checkbox" name="answer" value="{{ answer.answer }}">
                                     <span class="list-group-item list-group-item-action  border border-dark rounded-pill">
                                         {{ answer.answer }}
                                     </span>
-                                </div>
                             {% endfor %}
-                        </div>
-                    </li>
+                    </div>
+                    <script>
+                        $('#group input:checkbox').click(function(){
+                            if ($(this).is(':checked')) {
+                                 $('#group input:checkbox').not(this).prop('checked', false);
+                            }
+                        });
+                    </script>
                 </ul>
             {% endfor %}
             <button type="submit" class="btn btn-success submit-test">Submit</button>

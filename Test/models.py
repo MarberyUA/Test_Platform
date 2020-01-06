@@ -40,21 +40,6 @@ class PossibleAnswer(models.Model):
     def __str__(self):
         return self.answer
 
-    def get_detail_url(self):
-        question = Question.objects.get(id=self.question_id)
-        return reverse('question_detail_url', kwargs={'id': question.id})
-
-    def get_test_questions_url(self):
-        question = Question.objects.get(id=self.question_id)
-        return reverse('questions_list_url', kwargs={'id': question.test_id})
-
-    def get_edit_url(self):
-        return reverse('possible_answer_edit_url', kwargs={'id': self.id})
-
-    def get_delete_url(self):
-        return reverse('possible_answer_delete_url', kwargs={'id': self.id})
-
-
 class Comment(models.Model):
     """"""
 

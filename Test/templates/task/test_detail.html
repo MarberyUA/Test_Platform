@@ -42,8 +42,8 @@
                                     </button>
                                 </p>
                             {% endif %}
-
-                        {% else %}
+                        {% endif %}
+                    {% else %}
                             <p class="text-muted">{{ verified_context }}</p>
 
                             {% if test.created_by_id == request.user.id %}
@@ -52,7 +52,6 @@
                                 </a>
                             {% endif %}
 
-                        {% endif %}
                     {% endif %}
                 </div>
 

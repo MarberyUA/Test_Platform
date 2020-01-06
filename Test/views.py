@@ -35,7 +35,7 @@ class TestDescription(View):
         test = Test.objects.get(id=id)
 
         try:
-            user_assessment = TestMarks.objects.get(test_id=id, user_id=request.user.id)
+            user_assessment = TestMarks.objects.get(test_id=id, user_id=request.user.id).mark
         except:
             user_assessment = 0
 
