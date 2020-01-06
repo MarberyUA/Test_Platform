@@ -5,6 +5,7 @@ from .forms import *
 from .utils import *
 from django.db.models import Q
 
+
 # Create your views here.
 
 
@@ -86,11 +87,11 @@ class TestPass(View):
             mark = 0
             i = 0
             for obj in questions:
-                obj_id = obj.id
-                answers = PossibleAnswer.objects.filter(question_id=obj_id)
+                answers = PossibleAnswer.objects.filter(question_id=obj.id)
                 for answer in answers:
                     if (answer.right_answer == 1) and (answer.answer == values[i]):
                         mark += 1
+                        i += 1
 
             percent_mark = mark / len(questions) * 100
             try:
@@ -157,4 +158,3 @@ class PossibleAnswerEdit(ObjectUpdateMixin, View):
 class PossibleAnswerDelete(ObjectDeleteMixin, View):
     model = PossibleAnswer
     template = 'possible_answer_delete.html'
-
