@@ -20,7 +20,7 @@ SOCIAL_AUTH_VK_OAUTH2_SECRET = ''
 SOCIAL_AUTH_VK_APP_USER_MODE = 2
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-# google social auth
+# google social auth https://github.com/MarberyUA/Test_Platform/tree/master/readme_screenshots
 
 # your oauth2 application id from GOOGLE
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
