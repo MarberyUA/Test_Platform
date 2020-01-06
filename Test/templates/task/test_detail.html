@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load extra_filters %}
+
+    {% block content %}
+         {% block test %}
+         {% endblock %}
+        <div class="test-detail">
+            <div class="card">
+                <div class="card-header test-header">
+                     <div class="date_pub">
+                        {{ test.date_pub }}
+                     </div>
+                    {% if test.created_by_id == request.user.id %}
+                        <div class="dropdown dropdown-test-header">
+                            <button class="btn btn-secondary dropdown-toggle dropdown-test-header-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{% static 'pictures/edit.png' %}">
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-links" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'test_edit_url' test.id %}">Edit test</a>
+                                <a class="dropdown-item" href="{% url 'questions_list_url' test.id %}">Edit test`s questions</a>
+                                <a class="dropdown-item" href="{% url 'test_delete_url' test.id %}">Delete test</a>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ test.test_topic }}
+                    </h5>
+                    <p class="card-text">{{ test.description }}</p>
+                    {% if questions|length >= 5 %}
+                        {% if verified %}
+                            <p class="btn btn-primary">Number passes: {{ test.number_passes }}</p>
+                            <p class="btn btn-primary">Your last mark: {{ assessment }}</p>
+
+
+                            {% if request.user.is_authenticated %}
+                                <p>
+                                    <button type="button" class="btn btn-success pass-test">
+                                        <a href="{% url 'test_pass_url' test.id %}">Pass</a>
+                                    </button>
+                                </p>
+                            {% endif %}
+
+                        {% else %}
+                            <p class="text-muted">{{ verified_context }}</p>
+
+                            {% if test.created_by_id == request.user.id %}
+                                <a href="{% url 'questions_list_url' test.id %}" style="text-decoration: none">
+                                    <button type="button" class="btn btn-success">Compete the test</button>
+                                </a>
+                            {% endif %}
+
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                <div class="card-footer">
+                    <span>Created by:</span>
+                    <img src="{{ test.created_by_id|get_user_detail:2 }}" alt="..." class="img-thumbnail" style="width: 45px; height: 40px">
+                    <strong>{{ test.created_by_id|get_user_detail:1 }}</strong>
+                </div>
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-group input-group-sm mb-3 write-comment">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Write you comment</span>
+                    </div>
+                    <input name='comment' type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" style="margin-top: 3px">
+                    {% if error %}
+                        <a href="{% url 'test_detail_url'  test.id %}">
+                            <button type="button" class="btn btn-secondary">Try again</button>
+                        </a>
+                    {% else %}
+
+                        {% if request.user.is_authenticated %}
+                            <button type="submit" class="btn btn-secondary">Add</button>
+                        {% else %}
+                            <button type="submit" class="btn btn-secondary" disabled>You must log in to add a comment</button>
+                        {% endif %}
+
+                    {% endif %}
+                </div>
+            </form>
+            <div class="comments">
+                {% if error %}
+                    <p class="font-weight-bold" style="color: red;">{{ error }}</p>
+                {% endif %}
+                {% for comment in comments %}
+                    <div class="comment">
+                        <div class="test-comment">
+                            <div class="card">
+                                <div class="card-header">
+                                    <img src="{{ comment.created_by_id|get_user_detail:2 }}" alt="..." class="img-thumbnail" style="width: 45px; height: 40px">
+                                    <strong>{{ comment.created_by_id|get_user_detail:1 }}</strong>
+                                </div>
+                                <div class="card-text">
+                                    <span>{{ comment.comment }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}

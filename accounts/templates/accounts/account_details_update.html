@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    <form action="{% url 'user_details_update_url' request.user.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="card account-detail" style="width: 18rem;">
+            <div class="profile-photo">
+                {% if user.profile_photo %}
+                    <img src="{{ request.user.profile_photo.url }}" alt="..." class="img-thumbnail profile-photo" style="width: 95%; height: 200px">
+                {% else %}
+                    <img src="{% static 'pictures/no-avatar.jpg' %}" alt="..." class="img-thumbnail" style="">
+                {% endif %}
+            </div>
+            <div class="profile-photo-form">
+                {{ form.profile_photo }}
+            </div>
+            <div class="card-body">
+                <div class="user-detail">
+                    <h3>Your details:</h3>
+                    <div class="">
+                        <span>Username:</span>
+                        {{ form.username }}
+                    </div>
+                    <div class="">
+                        <span>Name:</span>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="">
+                        <span>Surname:</span>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="">
+                        <span>Email:</span>
+                        {{ form.email }}
+                    </div>
+                    <div class="">
+                        <span>Birthday: {{ user.birthday }}</span>
+                        <input type="date" name="birthday" value="{{ user.birthday }}">
+                    </div>
+                    <div class="user-description">
+                        <span>About you:</span>
+                        {{ form.personal_description }}
+                    </div>
+                </div>
+                 <button type="submit" class="btn btn-primary submit-changes">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

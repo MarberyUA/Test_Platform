@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load extra_filters %}
+
+    {% block content %}
+         {% block test %}
+         {% endblock %}
+        <div class="test-detail">
+            <form action="{% url 'question_edit_url' obj.id %}" method="post">
+                {% csrf_token %}
+                <div class="card question-edit">
+                    <span>Question:</span>
+                    <div class="card-header question-header">
+                        {{ form.question }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success pass-test">Submit</button>
+            </form>
+        </div>
+    {% endblock %}

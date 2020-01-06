@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block nav %}
+{% endblock %}
+{% block title %}
+    <div class="log-in-title">
+        <h2>Log in</h2>
+    </div>
+{% endblock %}
+{% block login %}
+{% endblock %}
+{% block content %}
+    <div class="auth">
+        <div class="log-in">
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Log in</button>
+            </form>
+            <a href="{% url 'password_reset_url' %}">Reset password</a>
+        </div>
+        <div class="via-vk">
+            <button type="button" class="btn btn-outline-primary"><a href="{% url 'social:begin' backend='vk-oauth2' %}">Log in via VK</a></button>
+            <button type="button" class="btn btn-outline-success"><a href="{% url 'social:begin' backend='google-oauth2' %}">Log in via Google</a></button>
+        </div>
+    </div>
+{% endblock %}

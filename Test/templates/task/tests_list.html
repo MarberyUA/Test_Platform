@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+{% load static %}
+
+{% block test %}
+    <div class="test">
+        <div class="dropdown dropdowntest">
+          <p class="btn btn-secondary dropdown-toggle test-button" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ test.test_topic }}
+          </p>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'test_detail_url' test.id %}">See the description</a>
+          </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+    <ul class="list-group list-group-flush result">
+                <h2>Your result of the test:</h2>
+                <li class="list-group-item">
+                    <span>Right answers:</span>
+                    {{ mark }}
+                </li>
+                <li class="list-group-item">
+                    <span>Percent of right answers</span>
+                    {{ percent_mark }}%
+                </li>
+              </ul>
+{% endblock %}

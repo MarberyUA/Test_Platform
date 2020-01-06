@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+
+    {% if error %}
+        <div class="pass-error">
+            {{ error }}
+            <a href="{% url 'test_pass_url' test.id %}" style="text-decoration: none">
+                <button type="button" class="btn btn-primary">Try again</button>
+            </a>
+        </div>
+    {% else %}
+        <form method="post" action="" xmlns="http://www.w3.org/1999/html">
+        {% csrf_token %}
+            {% for question in questions %}
+                <ul class="list-group a-question" >
+                    <li class="list-group-item list-group-item-light">{{ question }}</li>
+                        <div class="list-answers" id="group">
+                            {% for answer in question|get_answers %}
+                                <div class="possible-answer">
+                                    <input type="checkbox" name="answer" value="{{ answer.answer }}">
+                                    <span class="list-group-item list-group-item-action  border border-dark rounded-pill">
+                                        {{ answer.answer }}
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
+            <button type="submit" class="btn btn-success submit-test">Submit</button>
+            <a href="{% url 'test_detail_url' test.id %}" style="text-decoration: none">
+                <button type="button" class="btn btn-danger submit-test">Cancel</button>
+            </a>
+        </form>
+    {% endif %}
+{% endblock %}
+

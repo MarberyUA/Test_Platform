@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+    <form method="post" action="{% url 'create_question_url' obj.id %}" >
+    {% csrf_token %}
+        <div class="question-create-test-topic">
+            <h3>Test topic: <span class="badge badge-secondary">{{ obj.test_topic }}</span></h3>
+        </div>
+        <div class="question-create-form">
+            <span>Write question:</span>
+            {{ form.question }}
+            <button type="submit" class="btn btn-outline-success">Add</button>
+        </div>
+    </form>
+{% endblock %}

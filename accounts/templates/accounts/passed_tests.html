@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+    <div class="passed-tests">
+        <ul class="list-group">
+            {% for mark in marks %}
+                <li class="list-group-item"><a href="{{ mark.test_id|get_test }}">Test</a> Mark:{{ mark.mark }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

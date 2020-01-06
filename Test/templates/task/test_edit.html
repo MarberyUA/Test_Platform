@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load extra_filters %}
+
+    {% block content %}
+         {% block test %}
+         {% endblock %}
+        <div class="test-detail">
+            <form action="{% url 'test_edit_url' obj.id %}" method="post">
+                {% csrf_token %}
+                <div class="card">
+                    <div class="card-header test-header">
+                        {{ obj.date_pub }}
+                    </div>
+                    <div class="card-body test-edit">
+                        <h5 class="card-title">
+                            <span>Topic: </span>
+                            {{ form.test_topic }}
+                        </h5>
+                        <span>Description: </span>
+                        <p class="card-text">
+                            {{ form.description }}
+                        </p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success pass-test">Submit</button>
+            </form>
+        </div>
+    {% endblock %}

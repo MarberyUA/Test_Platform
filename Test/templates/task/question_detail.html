@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+    <div class="card question-card" style="">
+          <div class="card-header question-card-header">
+            <h3>Question: <span class="badge badge-secondary">{{ obj.question }}</span></h3>
+          </div>
+            {% for answer in obj|get_answers %}
+
+              <ul class="list-group list-group-flush question-card-answer">
+                <li class="list-group-item">
+                    {% if answer.right_answer %}
+                        <span style="color: green">Right answer:</span>
+                        {{ answer.answer }}
+                    {% else %}
+                        {{ answer.answer }}
+                    {% endif %}
+
+                    <a href="{% url 'possible_answer_edit_url' answer.id %}" style="text-decoration: none">
+                        <button type="button" class="btn btn-info">Edit</button>
+                    </a>
+                    <a href="{% url 'possible_answer_delete_url' answer.id %}" style="text-decoration: none">
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                </li>
+              </ul>
+
+            {% endfor %}
+     </div>
+    <div class="add-possible-answer">
+        {% if obj|get_answers|length < 4 %}
+            <a href="{% url 'possible_answer_create_url' obj.id %}" style="text-decoration: none">
+                <button type="button" class="btn btn-info" style="text-decoration: none">
+                    Add possible answer
+                </button>
+            </a>
+        {% else %}
+            <button type="button" class="btn btn-info" disabled>
+                You have already added maximal answers
+            </button>
+        {% endif %}
+
+        {% if obj|get_answers|length >= 4 and right_answers %}
+
+            <a href="{% url 'questions_list_url' obj.test_id %}" style="text-decoration: none">
+                <button type="button" class="btn btn-success">Complete question</button>
+            </a>
+        {% else %}
+                <button type="button" class="btn btn-success" disabled>Edit your answers, you must have only one right answer!</button>
+        {% endif %}
+    </div>
+{% endblock %}

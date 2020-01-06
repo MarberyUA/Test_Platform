@@ -1,0 +1,356 @@
+
+.log-in {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.via-vk {
+    display: flex;
+    flex-direction: column;
+}
+
+.via-vk button {
+    margin-top: 5px;
+}
+
+.via-vk a {
+    text-decoration: none;
+}
+
+.log-in-title {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.test {
+    margin-top: 20px;
+}
+
+.dropdowntest {
+    width: 70%!important;
+    margin: 0 auto;
+}
+
+.dropdown p {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.dropdown div {
+    width: 50%;
+    display: none;
+    margin: 0 auto;
+}
+
+.dropdown div a {
+    text-align: center;
+}
+
+.test-detail {
+    width: 70%!important;
+    margin: 0 auto!important;
+    margin-top: 20px!important;
+}
+
+.comment {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.test-comment {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.test-comment span {
+    padding-left: 20px;
+}
+
+.write-comment {
+    margin-top: 5px;
+}
+
+.pass-test a {
+    color: #f5f8ff;
+    text-decoration: none;
+}
+
+#profile_photo_id {
+    display: none;
+}
+
+.account-detail {
+    margin: 0 auto;
+}
+
+.user-detail input {
+    width: 100%;
+}
+
+.submit-changes {
+    margin-top: 5px;
+}
+
+.profile-photo {
+    display: block;
+    margin: 0 auto!important;
+}
+
+.profile-photo-form {
+    margin: 0 auto;
+}
+
+.profile-photo-form a {
+    display: none;
+}
+
+ #profile_photo-clear_id {
+     margin-top: 5px;
+     width: 20px;
+     height: 20px;
+}
+
+.personal-cabinet {
+    display: flex;
+}
+
+.personal-cabinet img {
+    margin-top: 5px;
+}
+
+.text-link {
+    padding-top: 12px;
+}
+
+.test-create-forms {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.test-create-forms button {
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.question-create-form {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.question-create-form button {
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.question-create-test-topic {
+    width: 70%;
+    padding-top: 50px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.a-question {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.answer {
+   margin-top: 5px;
+}
+
+.submit-test {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.question-card {
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.question-card-header {
+    text-align: center;
+}
+
+.add-possible-answer {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.answers li {
+    display: flex;
+    margin-top: 5px;
+}
+
+.answers li input {
+    margin-top: 15px;
+}
+
+.list-answers {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.possible-answer {
+    margin-top: 5px;
+    display: flex;
+}
+
+.possible-answer input {
+    margin-top: 20px;
+}
+
+.passed-tests {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.passed-image {
+    margin-bottom: 5px;
+}
+
+.selection {
+    margin: 0 auto;
+    width: 70%;
+}
+
+.selection a {
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+
+.test-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dropdown-test-header {
+    margin-left: 10px;
+}
+
+.dropdown-menu-links a {
+    font-size: 13px;
+}
+
+.test-edit {
+    margin: 0 auto;
+}
+
+.delete {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.delete form {
+    text-align: center;
+}
+
+.question-in-list {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.question-edit {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.question-header textarea {
+    width: 50%;
+}
+
+.add-question {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.add-question button {
+    display: block;
+    margin: 0 auto;
+}
+
+.searching-field {
+    display: flex;
+}
+
+.passed-tests-filter {
+    margin-left: 5px;
+}
+
+.possible-answer-create-form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.possible-answer-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.possible-answer-answer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.possible-answer-is-right {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.pass-error {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.result {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.user-description textarea{
+    width: 100%;
+}

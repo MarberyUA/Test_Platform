@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+    <form method="post" action="{% url 'possible_answer_create_url' obj.id %}">
+        {% csrf_token %}
+        <div class="question-create-test-topic">
+            <h3>Question topic: <span class="badge badge-secondary">{{ obj.question }}</span></h3>
+        </div>
+        <div class="possible-answer-create-form">
+            <div class="possible-answer-answer">
+                <span>Possible answer on the question: </span>
+                {{ form.answer }}
+            </div>
+            <div class="possible-answer-is-right card-footer">
+                <span>Is this answer is right?</span>
+                {{ form.right_answer }}
+            </div>
+            <button type="submit" class="btn btn-outline-success possible-answer-button">Add</button>
+        </div>
+    </form>
+{% endblock %}

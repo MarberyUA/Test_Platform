@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load extra_filters %}
+{% load static %}
+
+{% block content %}
+    {% block test %}
+    {% endblock %}
+    <div class="add-question">
+        <a href="{% url 'create_question_url' test.id %}" style="text-decoration: none">
+            <button type="button" class="btn btn-primary">Add question</button>
+        </a>
+        <a href="{% url 'test_detail_url' test.id %}" style="text-decoration: none">
+            <button type="button" class="btn btn-success">Complete the test</button>
+        </a>
+    </div>
+    {% for question in questions %}
+
+    <div class="card-header question-in-list">
+        <h3>Question: <span class="badge badge-secondary">{{ question.question }}</span></h3>
+
+        <a href="{% url 'question_detail_url' question.id %}" style="text-decoration: none">
+            <button type="button" class="btn btn-success">Detail</button>
+        </a>
+        <a href="{% url 'question_edit_url' question.id %}" style="text-decoration: none">
+            <button type="button" class="btn btn-secondary">Edit</button>
+        </a>
+        <a href="{% url 'question_delete_url' question.id %}" style="text-decoration: none">
+            <button type="button" class="btn btn-danger">Delete</button>
+        </a>
+
+
+    </div>
+
+    {% endfor %}
+{% endblock %}
