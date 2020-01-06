@@ -5,9 +5,9 @@ SECRET_KEY = get_random_secret_key()
 # db secret info
 
 # db user
-DB_USER = 'Marbery'
+DB_USER = ''
 # db user password
-DB_USER_PASSWORD = '12345szsz'
+DB_USER_PASSWORD = ''
 
 # vk auth
 
@@ -23,10 +23,10 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 # google social auth https://github.com/MarberyUA/Test_Platform/tree/master/readme_screenshots
 
 # your oauth2 application id from GOOGLE
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '365316702312-vku5c71e9vnl1kckk615nbf5th7i0jdu.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''
 
 # your oauth2 secret key from GOOGLE APP
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'XcO010BT3D4UPSg0aRLUDNqf'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 
 # email secret info
 
