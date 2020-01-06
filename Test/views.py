@@ -91,7 +91,7 @@ class TestPass(View):
                 for answer in answers:
                     if (answer.right_answer == 1) and (answer.answer == values[i]):
                         mark += 1
-                        i += 1
+                    i += 1
 
             percent_mark = mark / len(questions) * 100
             try:
