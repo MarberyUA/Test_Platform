@@ -354,3 +354,23 @@
 .user-description textarea{
     width: 100%;
 }
+
+.confirming-error {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.confirming-error button {
+    display: block;
+    margin: 0 auto;
+}
+
+.resent-link {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.success-confirm {
+    width: 70%;
+    margin: 0 auto;
+}

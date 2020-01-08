@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from secret_info import *
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-from secret_info import SECRET_KEY
 
 SECRET_KEY = SECRET_KEY
 
@@ -84,8 +85,6 @@ WSGI_APPLICATION = 'Test_Platform.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-from secret_info import DB_USER, DB_USER_PASSWORD
 
 DATABASES = {
     'default': {
@@ -164,10 +163,6 @@ AUTH_USER_MODEL = "accounts.User"
 
 # social auth via VK and google
 
-from secret_info import SOCIAL_AUTH_VK_OAUTH2_KEY, SOCIAL_AUTH_VK_OAUTH2_SECRET, \
-    SOCIAL_AUTH_VK_APP_USER_MODE, SOCIAL_AUTH_URL_NAMESPACE, SOCIAL_AUTH_GOOGLE_OAUTH2_KEY, \
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
-
 SOCIAL_AUTH_VK_OAUTH2_KEY = SOCIAL_AUTH_VK_OAUTH2_KEY
 SOCIAL_AUTH_VK_OAUTH2_SECRET = SOCIAL_AUTH_VK_OAUTH2_SECRET
 SOCIAL_AUTH_VK_APP_USER_MODE = SOCIAL_AUTH_VK_APP_USER_MODE
@@ -182,20 +177,19 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 FIXTURE_DIRS = (
-   os.path.join(PROJECT_DIR, 'fixtures'),
+   os.path.join(BASE_DIR, 'fixtures'),
 )
 
 # email info
 
-from secret_info import EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = EMAIL_HOST
 EMAIL_PORT = EMAIL_PORT
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # for toolbar
 

@@ -1,7 +1,4 @@
 from django.db import models
-from django.shortcuts import reverse
-import accounts
-import accounts.models
 from Test_Platform import settings
 
 # Create your models here.

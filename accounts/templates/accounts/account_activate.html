@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    <h2 style="text-align: center">Confirm</h2>
+{% endblock %}
+{% block login %}
+{% endblock %}
+{% block content %}
+    <div class="alert alert-success success-confirm" role="alert">
+        {{ success }}
+    </div>
+    {% if error %}
+        <div class="confirming-error">
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+            <form action="{% url 'account_activate_resend_url' user.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success">Resend an email</button>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}
