@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'accounts',
     'Test',
     'social_django',
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'Test_Platform.urls'
@@ -192,5 +190,3 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # for toolbar
-
-INTERNAL_IPS = ('127.0.0.1',)
