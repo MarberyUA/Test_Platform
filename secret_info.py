@@ -5,9 +5,9 @@ SECRET_KEY = get_random_secret_key()
 # db secret info
 
 # db user
-DB_USER = ''
+DB_USER = 'Marbery'
 # db user password
-DB_USER_PASSWORD = ''
+DB_USER_PASSWORD = '12345szsz'
 
 # vk auth
 
