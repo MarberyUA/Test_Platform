@@ -52,6 +52,16 @@ Set up your oauth2 secret key from GOOGLE APP:
 ```python
 6. SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''
 ```
+Set up your email settings to users can verify their emails:
+```python
+7. 
+
+EMAIL_HOST = ''
+EMAIL_PORT = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_SSL = True
+```
 
 Secondly go to Test_Platform/settings.py and write database name:
 ```python
@@ -76,8 +86,7 @@ python manage.py migrate
 
 Also to get started and see what project can provide we need to load prepared data with such commands:
 ```python
-python manage.py loaddata accounts/fixtures/initial_data.json
-python manage.py loaddata Test/fixtures/initial_data.json
+python manage.py loaddata initial_data.json
 ```
 
 # Then you must do this and enjoy the project:
